@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link>
+    <meta charset="UTF-8">
+
+<!--    Bootstrapの設定-->
+    <link th:href="@{webjars/bootstrap/3.4.1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+    <title>Login</title>
+</head>
+<body class="text-center">
+<h1>Login</h1>
+<form method="post" action="/login">
+    <label>ユーザーID</label>
+    <input type="text" /><br />
+    <br />
+
+    <label>パスワード</label>
+    <input type="password" /><br />
+    <br />
+
+    <button class="btn btn-primary" type="submit">ログイン</button>
+</form>
+<br />
+
+<!--タイムリーフを使ってアンカータグの使い方-->
+<!--１）th:href　属性を使用する-->
+<!--２）コントローラークラスの@GetMappingアノテーションのカッコ内の文字列を指定する-->
+<a th:href="@{'/signup'}">ユーザー新規登録はこちら</a>
+
+</body>
+</html>
