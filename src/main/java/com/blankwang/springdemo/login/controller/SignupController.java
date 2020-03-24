@@ -42,17 +42,20 @@ public class SignupController {
         return "login/signup";
     }
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     //BindingResult データバインド結果の受取
     public String postSignUp(@ModelAttribute SignupForm form, BindingResult bindingResult,
                              Model model){
         if (bindingResult.hasErrors()){
 
+            System.out.println(form);
+            System.out.println(bindingResult);
             return getSignUp(form, model);
         }
 
         //画面から渡された値を確認するため、formの中身をコンソールに出力
         System.out.println(form);
+        System.out.println(bindingResult);
 
         return "redirect:/login";
     }

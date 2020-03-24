@@ -16,7 +16,7 @@ public class LoginController {
         return "login/login";
     }
 
-    //ごルイン画面のPOST用コントローラ
+    //ログイン画面のPOST用コントローラ
     @PostMapping("/login")
     public String postLogin(Model model){
 

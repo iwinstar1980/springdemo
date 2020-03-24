@@ -14,6 +14,7 @@
         <h1>ユーザー登録画面</h1>
     </div>
 <!--    Springセキュリティを使うために、form の action 属性はタイムリーフの書き方で書く-->
+<!--    th:object属性を使うことで、Modelに登録されているオブジェクト（SignupForm）を受け取る-->
     <form method="post" th:action="@{/signup}" th:object="${signupForm}">
         <table class="table table-bordered table-hover">
             <!--            ユーザIDエリア-->
