@@ -17,6 +17,12 @@ public class HomeController {
     public String getHome(Model model) {
 
         // コンテンツ部分にホーム画面を表示するための文字列を登録
+        /**
+         * th:includeの値："<ファイルパス>::<th:fragment属性の値>"
+         * "login/home::home_contents"を日本語に説明すると
+         * loginフォルダー内にあるhome.htmlというコンテンツ用のhtmlがある
+         * そのhtml内に、th:fragment="home_contents"と書いてある
+         */
         model.addAttribute("contents", "login/home::home_contents");
 
         return "login/homeLayout";
