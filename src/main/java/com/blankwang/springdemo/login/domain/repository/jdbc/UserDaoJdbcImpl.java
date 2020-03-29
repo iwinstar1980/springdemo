@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -73,8 +74,14 @@ public class UserDaoJdbcImpl implements UserDao {
     @Override
     public List<User> selectMany() throws DataAccessException {
 
+        /**
+         * queryForList
+         * 戻り値の型にはList<Map<String, Object>>を指定、Listが行、Mapが列を表す
+         * Mapのgetメソッドでテーブルのカラム名を指定することで、値を取得できる
+         */
         // M_USERテーブルのデータを全件取得
         List<Map<String, Object>> getList = jdbc.queryForList("SELECT * FROM m_user");
+        System.out.println(getList);
 
         // 結果返却用の変数
         List<User> userList = new ArrayList<>();
@@ -82,9 +89,23 @@ public class UserDaoJdbcImpl implements UserDao {
         // 取得したデータを結果返却用のListに格納する
         for (Map<String, Object> map: getList){
 
+            // Userインスタンスの生成
+            User user = new User();
+
+            // Userインスタンスに取得したデータをセット
+            user.setUserId((String)map.get("user_id"));
+            user.setPassword((String)map.get("password"));
+            user.setUserName((String)map.get("user_name"));
+            user.setBirthday((Date)map.get("birthday"));
+            user.setAge((Integer)map.get("age"));
+            user.setMarriage((Boolean)map.get("marriage"));
+            user.setRole((String)map.get("role"));
+
+            // 結果返却用のListに追加
+            userList.add(user);
         }
 
-        return null;
+        return userList;
     }
 
     @Override

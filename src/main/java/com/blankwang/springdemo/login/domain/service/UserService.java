@@ -5,6 +5,8 @@ import com.blankwang.springdemo.login.domain.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -26,5 +28,15 @@ public class UserService {
         }
 
         return result;
+    }
+
+    // カウント用メソッド
+    public int count() {
+        return dao.count();
+    }
+
+    // 全件取得用メソッド
+    public List<User> selectMany() {
+        return dao.selectMany();
     }
 }
