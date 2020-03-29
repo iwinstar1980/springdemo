@@ -40,6 +40,7 @@ public class SignupController {
      * @ModelAttribute
      * 引数のformクラスに@ModelAttributeアノテーションを付けると、
      * 自動でModelクラスに登録（addAttribute）してくれる
+     * イメージ：mode.addAttribute("signupForm", form);
      */
     @GetMapping("/signup")
     public String getSignUp(@ModelAttribute SignupForm form, Model model){

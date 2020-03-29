@@ -20,7 +20,7 @@ public class LoginController {
     @PostMapping("/login")
     public String postLogin(Model model){
 
-        // ホーム画面に遷移
+        // ホーム画面に遷移（GETメソッド）
         return "redirect:/home";
     }
 }
