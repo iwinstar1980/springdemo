@@ -62,6 +62,7 @@ public class SignupController {
         // 入力チェックに引っかかった場合、ユーザー登録画面に戻る
         if (bindingResult.hasErrors()){
 
+            System.out.println(form);
             // GETリクエスト用のメソッドを呼び出して、ユーザー登録画面に戻る
             return getSignUp(form, model);
         }
