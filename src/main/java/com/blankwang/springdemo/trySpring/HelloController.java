@@ -20,7 +20,8 @@ public class HelloController {
         return "hello";
     }
 
-    //@RequestParamアノテーションの引数にはpost元のhtmlのname属性の値を指定
+    //@RequestParamアノテーション： 画面からの入力内容を受取
+    //引数にはpost元のhtmlのname属性の値を指定
     @PostMapping("/hello")
     public String postRequest(@RequestParam("text1")String str,
                               Model model){
